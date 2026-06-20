@@ -1,16 +1,24 @@
 {
-	"name": "dawn-sun-b3cf",
+	"name": "make-account-item-demo",
 	"type": "module",
 	"scripts": {
 		"dev": "wrangler dev",
 		"deploy": "wrangler deploy --minify",
+		"typecheck": "tsc --noEmit",
+		"db:schema": "wrangler d1 execute accounting_demo_db --remote --file scripts/schema.sql",
+		"db:seed": "wrangler d1 execute accounting_demo_db --remote --file scripts/seed-accounts.sql",
+		"seed:vectors": "curl -fsS -X POST http://localhost:8787/seed/vectors",
 		"cf-typegen": "wrangler types --env-interface CloudflareBindings"
 	},
 	"dependencies": {
-		"hono": "^4.12.25"
+		"@google/genai": "^1.16.0",
+		"@modelcontextprotocol/sdk": "^1.17.5",
+		"hono": "^4.12.25",
+		"zod": "^3.25.76"
 	},
 	"devDependencies": {
 		"@types/node": "^25.9.3",
+		"typescript": "^6.0.3",
 		"wrangler": "^4.100.0"
 	}
 }
