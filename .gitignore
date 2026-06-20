@@ -36,6 +36,10 @@ lerna-debug.log*
 # misc
 .DS_Store
 
+# sample receipts: 公開する匿名デモレシートのみ追跡（他のファイルは PII 保護で除外）
+sample/*
+!sample/領収書.pdf
+
 .dev.vars*
 !.dev.vars.example
 !.env.example
